@@ -1,0 +1,7 @@
+@startuml EstadoMatricula
+title Estado de Matrícula
+
+[*] --> Disponible : importarMatriculas()
+
+Disponible --> [*]
+@enduml

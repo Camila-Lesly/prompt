@@ -1,0 +1,24 @@
+@startuml Dispensas_Estado
+title Diagrama de Estados: Dispensa
+
+state Solicitada
+state Gestionada
+state Aprobada
+state Rechazada
+state Apelada
+
+[*] --> Solicitada           : solicitarDispensa()
+
+Solicitada --> Gestionada    : gestionarSolicitudDispensa()
+Gestionada --> Aprobada      : aprobarDispensa()
+Gestionada --> Rechazada     : rechazarDispensa()
+
+Rechazada --> Apelada        : apelarDispensa()
+
+Apelada --> Aprobada         : aprobarApelacion()
+Apelada --> Rechazada        : rechazarApelacionDefinitiva()
+
+Aprobada --> [*]             : cerrarDispensa()
+Rechazada --> [*]            : cerrarDispensa()
+
+@enduml

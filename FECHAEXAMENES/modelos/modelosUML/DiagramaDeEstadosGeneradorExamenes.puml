@@ -1,0 +1,14 @@
+@startuml
+
+[*] --> PendienteDeAsignar
+
+PendienteDeAsignar --> Asignando : iniciarAsignación()
+
+Asignando --> PendienteDeRevisión : fechasGeneradas()
+
+PendienteDeRevisión --> Asignando : solicitarCorrección()
+PendienteDeRevisión --> Finalizado : aprobarAsignación()
+
+Finalizado --> [*]
+
+@enduml
