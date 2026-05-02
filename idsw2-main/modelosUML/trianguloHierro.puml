@@ -1,0 +1,17 @@
+@startuml
+
+hide empty members
+hide circle
+
+class TIEMPO
+class COSTE
+
+TIEMPO -r-> COSTE
+TIEMPO -d-> ÁMBITO
+COSTE -d-> ÁMBITO
+
+CALIDAD -u-> TIEMPO
+CALIDAD -u-> COSTE
+CALIDAD -d-> ÁMBITO
+
+@enduml

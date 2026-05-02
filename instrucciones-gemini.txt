@@ -1,0 +1,10 @@
+# Prompt para Gemini
+
+Este repositorio contiene varias carpetas, cada una correspondiente a un proyecto de ingeniería de software. Al analizar cada carpeta, enfócate principalmente en el **modelo de dominio**, que define las entidades y relaciones clave del sistema. Además, ten en cuenta que todos los proyectos aplican la metodología RUP (Rational Unified Process), por lo que la estructura y documentación siguen sus fases y disciplinas.
+
+Para cada carpeta encontrarás:
+- Documentación del modelo de dominio (diagramas, descripciones, glosario).
+- Casos de uso y actores principales.
+- Diagramas de contexto y prototipos.
+
+Utiliza esta información para contextualizar correctamente el contenido y comprender la lógica de cada sistema.

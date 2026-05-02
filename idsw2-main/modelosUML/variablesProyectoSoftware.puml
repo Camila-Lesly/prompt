@@ -1,0 +1,47 @@
+@startuml
+
+hide empty members
+hide circle
+
+class "Proyecto de Software" as ProyectoSoftware
+ProyectoSoftware *-down-> ProductoSoftware
+ProyectoSoftware *-down-> Variable
+ProyectoSoftware *-down-> Efectividad
+
+class "Producto Software" as ProductoSoftware
+class "<b>CALIDAD</b>" as Calidad
+class "<b>TIEMPO</b>" as Tiempo
+
+ProductoSoftware *-down-> Calidad
+
+class Calidad
+Calidad *-down-> Mantenibilidad
+
+class Mantenibilidad
+
+class Efectividad
+class Eficacia
+class Eficiencia
+Efectividad *-down-> Eficacia
+Efectividad *-down-> Eficiencia
+
+class "<b>ÁMBITO</b>" as Ambito
+Eficacia -down-> Ambito
+Eficiencia -down-> Tiempo
+class "<b>COSTE</b>" as Coste
+Eficiencia -down-> Coste
+
+class Variable
+class Tiempo
+class Coste
+
+Variable <|-down- Tiempo
+Variable <|-down- Ambito
+Variable <|-down- Coste
+Variable <|-down- Calidad
+
+Tiempo -down-> Calidad
+Ambito -down-> Calidad
+Coste -down-> Calidad
+
+@enduml

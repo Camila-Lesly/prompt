@@ -247,3 +247,21 @@
 | ![Detallado de Exportar Grados](exportarGrados/exportarGrados.svg) |
 | :--- |
 | [Código UML](exportarGrados/exportarGrados.puml) |
+
+# Calificaciones del Proyecto
+
+## Rúbrica de Evaluación
+| Criterio                                 | Puntos |
+|------------------------------------------|--------|
+| Evidencia de interacción con cliente     | 2.0    |
+| Modelo del dominio                       | 2.5    |
+| Casos de uso y criterios de aceptación   | 2.5    |
+| Trazabilidad y versionado                | 1.0    |
+| Organización del repositorio             | 1.0    |
+| Uso responsable de IA (declaración)      | 1.0    |
+| **Total**                                | **10** |
+
+## Evaluación del Proyecto
+| Evidencia de interacción con cliente | Modelo del dominio | Casos de uso y criterios de aceptación | Trazabilidad y versionado | Organización del repositorio | Uso responsable de IA (declaración) | Nota |
+|--------------------------------------|--------------------|----------------------------------------|--------------------------|------------------------------|--------------------------------------|------|
+| 2                                    | 2.3                | 2.5                                    | 0.9                      | 1                            | 0.7                                  | 9.4  |

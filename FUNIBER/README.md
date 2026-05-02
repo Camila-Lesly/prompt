@@ -63,6 +63,26 @@ El sistema se organiza en cuatro áreas funcionales clave:
 
 ---
 
+# Calificaciones del Proyecto
+
+## Rúbrica de Evaluación
+| Criterio                                 | Puntos |
+|------------------------------------------|--------|
+| Evidencia de interacción con cliente     | 2.0    |
+| Modelo del dominio                       | 2.5    |
+| Casos de uso y criterios de aceptación   | 2.5    |
+| Trazabilidad y versionado                | 1.0    |
+| Organización del repositorio             | 1.0    |
+| Uso responsable de IA (declaración)      | 1.0    |
+| **Total**                                | **10** |
+
+## Evaluación del Proyecto
+| Evidencia de interacción con cliente | Modelo del dominio | Casos de uso y criterios de aceptación | Trazabilidad y versionado | Organización del repositorio | Uso responsable de IA (declaración) | Nota |
+|--------------------------------------|--------------------|----------------------------------------|--------------------------|------------------------------|--------------------------------------|------|
+| 1.9                                  | 2                  | 2.3                                    | 0.7                      | 1                            | 0                                    | 7.9  |
+
+---
+
 <div align="center">
   <sub>© 2025 — Ingeniería de Software I · Proyecto FUNIBER — Plataforma GIPF</sub>
 </div>

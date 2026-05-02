@@ -1,0 +1,32 @@
+@startuml
+
+hide circle
+hide empty members
+
+class "Capacidad\n Mental" as Capacidad
+class "Limitación" as Limitacion
+class "Capacidad \nMental \nCuantitativa" as CapacidadCuantitativa
+class "Número \nMágico de\n Miller" as MagicoMiller
+class "Enfoque\n Visual" as EnfoqueVisual
+class "Capacidad \nMental \nCualitativa" as CapacidadCualitativa
+class "Abstracción" as Abstraccion
+class "Encapsulación" as Encapsulacion
+class "Modularización" as Modularizacion
+class "Jerarquización" as Jeraquizacion
+
+Capacidad <|-down- CapacidadCuantitativa
+CapacidadCuantitativa *-down-> Limitacion
+
+CapacidadCuantitativa <|-down- MagicoMiller
+
+CapacidadCuantitativa <|-down- EnfoqueVisual
+
+Capacidad <|-down- CapacidadCualitativa
+CapacidadCualitativa -left-> Limitacion
+
+CapacidadCualitativa *-down-> Jeraquizacion
+Modularizacion *-down-> Abstraccion
+Modularizacion *-down-> Encapsulacion
+Jeraquizacion *-down-> Modularizacion
+
+@enduml

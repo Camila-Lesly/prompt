@@ -1,5 +1,3 @@
-
-
 # 💻 Sistema de Gestión de Tareas - Ingeniería de Software I
 <div align="center">
   <img src="./documents/imagenes/logo.png" alt="logo" width="300" />
@@ -51,3 +49,22 @@ En este apartado se puede encontrar los diferentes avances que hemos tenido dura
 |  [📝Notas Tomadas](https://github.com/Sergiorl2/25-26-IdSw1-SdR/blob/develop/documents/minutas/segundaReunion/notasTomadas.md) |
 |  [🔗Evidencias](https://github.com/Sergiorl2/25-26-IdSw1-SdR/tree/main/documents/evidencias/segundaReunion) |
 |  [📂Modelos UML](https://github.com/Sergiorl2/25-26-IdSw1-SdR/tree/develop/documents/actoresYCasosDeUso/diagramas) |
+
+
+# Calificaciones del Proyecto
+
+## Rúbrica de Evaluación
+| Criterio                                 | Puntos |
+|------------------------------------------|--------|
+| Evidencia de interacción con cliente     | 2.0    |
+| Modelo del dominio                       | 2.5    |
+| Casos de uso y criterios de aceptación   | 2.5    |
+| Trazabilidad y versionado                | 1.0    |
+| Organización del repositorio             | 1.0    |
+| Uso responsable de IA (declaración)      | 1.0    |
+| **Total**                                | **10** |
+
+## Evaluación del Proyecto
+| Evidencia de interacción con cliente | Modelo del dominio | Casos de uso y criterios de aceptación | Trazabilidad y versionado | Organización del repositorio | Uso responsable de IA (declaración) | Nota |
+|--------------------------------------|--------------------|----------------------------------------|--------------------------|------------------------------|--------------------------------------|------|
+| 1.9                                  | 2.1                | 2.1                                    | 0.7                      | 1                            | 0                                    | 7.8  |

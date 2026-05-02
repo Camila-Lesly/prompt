@@ -1,0 +1,26 @@
+@startuml
+
+allow_mixing
+hide stereotype
+hide circle
+hide empty members
+
+class Mantenibilidad
+class "Mantenibilidad\nCorrectiva" as MantenibilidadCorrectiva
+class "Mantenibilidad\nAdaptativa" as MantenibilidadAdaptativa
+class "Mantenibilidad\nPerfectiva" as MantenibilidadPerfectiva
+
+Mantenibilidad <|-down- MantenibilidadCorrectiva
+Mantenibilidad <|-down- MantenibilidadAdaptativa
+Mantenibilidad <|-down- MantenibilidadPerfectiva
+
+actor Usuario
+actor Desarrollador
+actor Cliente
+
+MantenibilidadCorrectiva --> Usuario
+MantenibilidadCorrectiva --> Desarrollador
+MantenibilidadAdaptativa --> Desarrollador
+MantenibilidadPerfectiva --> Desarrollador
+MantenibilidadPerfectiva --> Cliente
+@enduml

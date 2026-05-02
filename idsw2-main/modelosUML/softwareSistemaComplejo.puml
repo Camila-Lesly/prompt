@@ -1,0 +1,87 @@
+@startuml
+hide circle
+
+package 1 {
+legend top
+Programación
+de Alto Nivel
+end legend
+class Subprograma
+class "Expresión" as Expresion1
+class "Asignación" as Asignacion
+Subprograma *-down-> Asignacion
+Asignacion *-down-> Expresion1
+}
+
+package 2 {
+legend top
+   Tésis:
+ Programación
+  Orientado a
+   Procesos
+
+Programación
+  Modular.
+   TAD`s
+end legend
+
+class "Módulo" as Modulo2
+class "Subprograma" as Subprograma2
+class "Asignación" as Asignacion2
+class "Expresión" as Expresion2
+Modulo2 *-down-> Subprograma2
+Subprograma2 *-down-> Asignacion2
+Asignacion2 *-down-> Expresion2
+}
+
+package 3 {
+legend top
+Programación
+Estructurada
+end legend
+
+class "Módulo" as Modulo3
+class "Subprograma" as Subprograma3
+class "Sentencia" as Sentencia3
+class "Asignación" as Asignacion3
+class "Expresión" as Expresion3
+
+Modulo3 *-down-> Subprograma3
+Subprograma3 *-down-> Sentencia3
+Sentencia3 *-down-> Asignacion3
+Asignacion3 *-down-> Expresion3
+}
+
+package 4 {
+legend top
+Antítesis:
+Programación
+Orientado a
+Datos
+end legend
+
+class Entidad
+}
+
+package 5 {
+legend top
+Síntesis:
+Programación
+Orientado a
+Objetos
+end legend
+
+class "Módulo" as Modulo5
+class Clase
+class "Subprograma" as Subprograma5
+class "Sentencia" as Sentencia5
+class "Asignación" as Asignacion5
+class "Expresión" as Expresion5
+
+Modulo5 *-down-> Clase
+Clase *-down-> Subprograma5
+Subprograma5 *-down-> Sentencia5
+Sentencia5 *-down-> Asignacion5
+Asignacion5 *-down-> Expresion5
+}
+@enduml
