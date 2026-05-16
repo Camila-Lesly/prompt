@@ -1,0 +1,8 @@
+@startuml
+
+state consulta as "En Consulta"
+
+[*] --> consulta : visitante ingresa
+consulta --> [*] : visitante sale
+
+@enduml

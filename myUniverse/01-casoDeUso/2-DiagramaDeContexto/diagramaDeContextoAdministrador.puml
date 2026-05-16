@@ -1,0 +1,41 @@
+@startuml diagrama-contexto-administrador
+
+left to right direction
+skinparam linetype polyline
+
+state "SESION_CERRADA" as NoAuth
+state "UNIVERSIDAD_DISPONIBLE" as Menu
+
+state "ESPACIOS_ABIERTO" as ListEspacios
+state "ESPACIO_ABIERTO" as EditEspacio
+state "RECORRIDOS_ABIERTO" as ListRecorridos
+state "RECORRIDO_ABIERTO" as EditRecorrido
+
+[*] --> NoAuth
+
+NoAuth --> Menu : iniciarSesion()
+
+Menu --> NoAuth : cerrarSesion()
+Menu --> ListEspacios: abrirEspacios()
+Menu --> ListRecorridos: abrirRecorridos()
+
+
+ListEspacios --> EditEspacio: crearEspacio()
+ListEspacios --> EditEspacio: editarEspacio()
+ListEspacios --> ListEspacios: eliminarEspacio()
+
+EditEspacio --> EditEspacio: editarEspacio()
+EditEspacio --> ListEspacios: abrirEspacios()
+
+ListRecorridos --> EditRecorrido: crearRecorrido()
+ListRecorridos --> EditRecorrido: editarRecorrido()
+ListRecorridos --> ListRecorridos: eliminarRecorrido()
+
+EditRecorrido --> EditRecorrido: editarRecorrido()
+EditRecorrido --> ListRecorridos: abrirRecorridos()
+
+
+ListEspacios --> Menu: completarGestion()
+ListRecorridos --> Menu: completarGestion()
+
+@enduml
