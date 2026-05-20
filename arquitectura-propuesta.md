@@ -1,7 +1,5 @@
 # Propuesta técnica de arquitectura — myUniverse
 
-## TL;DR
-
 Desarrollar **myUniverse** como una aplicación **web** orientada a la exploración de un **edificio de ejemplo** mediante planos interactivos por planta, consulta de espacios y localización de puntos de interés. La solución propuesta sigue una arquitectura **frontend por capas con enfoque Clean Architecture / Hexagonal ligera**, separando claramente presentación, aplicación, dominio e infraestructura para facilitar mantenibilidad, testing y evolución futura.
 
 La primera versión no busca modelar toda la universidad ni construir un 3D real complejo, sino validar una solución técnicamente sólida, bien diseñada y extensible. La visualización se apoya en **React + TypeScript** y un renderizado inicial mediante **SVG interactivo**, dejando abierta una evolución futura hacia vistas pseudo-3D o integración con motores gráficos si el proyecto lo requiere.
