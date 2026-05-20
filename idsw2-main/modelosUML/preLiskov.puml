@@ -1,8 +1,0 @@
-class P
-P *-down-> T
-
-class T
-object oT
-
-P .down.> oT
-oT ..> T

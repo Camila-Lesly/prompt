@@ -1,7 +1,0 @@
-@startuml EstadoAlumno
-title Estado de Alumno
-
-[*] --> Disponible : importarAlumnos()
-
-Disponible --> [*]
-@enduml
