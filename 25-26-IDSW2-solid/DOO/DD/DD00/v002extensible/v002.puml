@@ -1,0 +1,100 @@
+@startuml
+
+class OtroRol  {
++ void recibir(Persona)
++ void visitar(Mujer)
++ void visitar(Hombre)
+}
+
+class Camarero  {
++ void recibir(Persona)
++ void visitar(Mujer)
++ void visitar(Hombre)
+}
+note right
+void visitar
+  (Mujer mujer) {
+  mujer
+    .recibirPiropo();
+}
+
+void visitar
+  (Hombre hombre){
+  hombre
+    .recibirPalmada();
+}
+endnote
+
+package personas {
+
+interface VisitadorPersona {
++ void visitar(Mujer)
++ void visitar(Hombre)
+}
+
+together {
+abstract class Persona {
++ {abstract} void aceptar\n (VisitadorPersona)
+}
+
+class Mujer {
++ void recibirPiropo()
++ void aceptar(VisitadorPersona)
+}
+note right
+void aceptar
+  (VisitadorPersona
+    visitadorPersona) {
+  visitadorPersona
+    .visitar(this);
+}
+endnote
+
+class Hombre  {
++ void recibirPalmada()
++ void aceptar(VisitadorPersona)
+}
+note right
+void aceptar
+  (VisitadorPersona
+    visitadorPersona) {
+  visitadorPersona
+    .visitar(this);
+}
+endnote
+
+}
+}
+
+Restaurante *-down-> Camarero
+Restaurante *-down-> OtroRol
+Restaurante *-down-> Persona : cliente
+
+Persona <|-down- Hombre
+Persona <|-down- Mujer
+
+VisitadorPersona <|-down- Camarero
+VisitadorPersona <|-down- OtroRol
+
+OtroRol ..> Persona
+OtroRol ..> Hombre
+OtroRol ..> Mujer
+
+Camarero ..> Persona
+Camarero ..> Hombre
+Camarero ..> Mujer
+
+Hombre ..> VisitadorPersona
+Mujer ..> VisitadorPersona
+Persona ..> VisitadorPersona
+
+
+legend left
+<b><i>2Think</i></b>
+====
+- Persona: acepta(VisitadorPersona) es el punto de entrada para el patrón Visitor (doble despacho)
+- VisitadorPersona: permite definir distintos comportamientos según el tipo concreto de Persona (Hombre/Mujer)
+- Restaurante: simula la interacción usando Recepcionista y Camarero como Visitadores
+endlegend
+
+@enduml
