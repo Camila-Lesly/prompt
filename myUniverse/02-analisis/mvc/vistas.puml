@@ -1,0 +1,68 @@
+@startuml vistas
+title Diagrama de Vistas (Clases de Frontera) - myUniverse
+
+skinparam linetype ortho
+skinparam packageStyle rectangle
+skinparam shadowing false
+skinparam roundCorner 5
+skinparam class {
+    BackgroundColor white
+    BorderColor #555555
+    ArrowColor #333333
+}
+
+package "Views" as ViewsPackage {
+
+    package "Auth" as AuthPackage {
+        boundary "LoginView" as LoginView
+    }
+
+    package "Administrator" as AdminPackage {
+        boundary "EspaciosView"          as EspaciosView
+        boundary "CrearEspacioView"      as CrearEspacioView
+        boundary "EditarEspacioView"      as EditarEspacioView
+        boundary "EliminarEspacioView"    as EliminarEspacioView
+        
+        boundary "RecorridosView"        as RecorridosView
+        boundary "CrearRecorridoView"    as CrearRecorridoView
+        boundary "EditarRecorridoView"    as EditarRecorridoView
+        boundary "EliminarRecorridoView"  as EliminarRecorridoView
+    }
+
+    package "Visitor" as VisitorPackage {
+        boundary "BienvenidaView"        as BienvenidaView
+        boundary "ListarRecorridosView"  as ListarRecorridosView
+        boundary "RecorridoView"         as RecorridoView
+        boundary "EspacioView"           as EspacioView
+        boundary "BuscarEspacioView"     as BuscarEspacioView
+        boundary "DetalleEspacioView"    as DetalleEspacioView
+        boundary "EspaciosCercanosView"  as EspaciosCercanosView
+        boundary "EspaciosPlantaView"    as EspaciosPlantaView
+        boundary "NavegacionView"        as NavegacionView
+    }
+}
+
+' Relaciones de navegación y transiciones entre vistas
+LoginView ..> EspaciosView : autentica >
+LoginView ..> RecorridosView : autentica >
+
+EspaciosView o--> CrearEspacioView : permite >
+EspaciosView o--> EditarEspacioView : permite >
+EspaciosView o--> EliminarEspacioView : permite >
+
+RecorridosView o--> CrearRecorridoView : permite >
+RecorridosView o--> EditarRecorridoView : permite >
+RecorridosView o--> EliminarRecorridoView : permite >
+
+BienvenidaView ..> ListarRecorridosView : inicia >
+ListarRecorridosView o--> RecorridoView : selecciona >
+
+RecorridoView o--> EspacioView : muestra >
+RecorridoView o--> BuscarEspacioView : permite >
+
+EspacioView o--> DetalleEspacioView : ver >
+EspacioView o--> EspaciosCercanosView : ver >
+EspacioView o--> EspaciosPlantaView : ver >
+EspacioView o--> NavegacionView : transiciona >
+
+@enduml

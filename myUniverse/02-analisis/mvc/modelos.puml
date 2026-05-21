@@ -1,0 +1,23 @@
+@startuml modelos
+title Diagrama de Modelos (Entidades) - myUniverse
+
+skinparam linetype ortho
+skinparam packageStyle rectangle
+skinparam shadowing false
+skinparam roundCorner 5
+skinparam class {
+    BackgroundColor white
+    BorderColor #555555
+    ArrowColor #333333
+}
+
+package "Models" as Models {
+
+    entity "Administrador"           as Administrador           << (E,#99CC99) >>
+    entity "Sesion"                  as Sesion                  << (E,#99CC99) >>
+    entity "Visita"                  as Visita                  << (E,#99CC99) >>
+    entity "Recorrido"               as Recorrido               << (E,#99CC99) >>
+    entity "Espacio"                 as Espacio                 << (E,#99CC99) >>
+}
+
+@enduml
