@@ -1,0 +1,26 @@
+@startuml iniciarSesion-analisis
+skinparam linetype polyline
+
+actor Administrador
+package iniciarSesion as "iniciarSesion()" {
+    rectangle #629EF9 LoginView
+    rectangle #b5bd68 IniciarSesionController
+    rectangle #F2AC4E AdministradorRepository
+    rectangle #F2AC4E Administrador as "Administrador (Entity)"
+    rectangle #F2AC4E Sesion
+}
+rectangle #CDEBA5 ":UNIVERSIDAD_DISPONIBLE" as UniversidadDisponible
+
+Administrador -r-> LoginView: iniciarSesion(usuario, contraseña)
+
+LoginView -d-> IniciarSesionController: autenticar(usuario, contraseña) : Sesion
+
+IniciarSesionController --> AdministradorRepository: validarCredenciales(usuario, contraseña) : Administrador
+
+AdministradorRepository -- "Administrador (Entity)"
+
+IniciarSesionController --> Sesion: crearSesion(administrador) : Sesion
+
+LoginView -r-> UniversidadDisponible: mostrarMenuPrincipal()
+
+@enduml

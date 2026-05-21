@@ -1,0 +1,30 @@
+@startuml eliminarEspacio-analisis
+skinparam linetype polyline
+
+rectangle #CDEBA5 ":ESPACIOS_ABIERTO" as EspaciosAbierto
+rectangle #CDEBA5 ":ESPACIO_ABIERTO" as EspacioAbierto
+rectangle #CDEBA5 ":collaboration abrirEspacios" as AbrirEspacios
+
+package eliminarEspacio as "eliminarEspacio()" {
+    rectangle #629EF9 EliminarEspacioView
+    rectangle #b5bd68 EspacioController
+    rectangle #F2AC4E EspacioRepository
+    rectangle #F2AC4E Espacio
+}
+
+EspaciosAbierto --> EliminarEspacioView: eliminarEspacio(espacioId)
+EspacioAbierto --> EliminarEspacioView: eliminarEspacio(espacioId)
+
+EliminarEspacioView -d-> EspacioController: cargarEspacioParaEliminacion(espacioId) : Espacio
+
+EspacioController --> EspacioRepository: obtenerPorId(espacioId) : Espacio
+
+EspacioRepository -- Espacio
+
+EliminarEspacioView --> EspacioController: eliminarEspacio(espacioId) : void
+
+EspacioController --> EspacioRepository: eliminar(espacioId) : void
+
+EliminarEspacioView ..> AbrirEspacios: <<include>> abrirEspacios()
+
+@enduml

@@ -1,0 +1,28 @@
+@startuml crearRecorrido-analisis
+skinparam linetype polyline
+
+rectangle #CDEBA5 ":RECORRIDOS_ABIERTO" as RecorridosAbierto
+rectangle #CDEBA5 ":collaboration editarRecorrido" as EditarRecorrido
+
+package crearRecorrido as "crearRecorrido()" {
+    rectangle #629EF9 CrearRecorridoView
+    rectangle #b5bd68 RecorridoController
+    rectangle #F2AC4E RecorridoRepository
+    rectangle #F2AC4E Recorrido
+}
+
+RecorridosAbierto -r-> CrearRecorridoView: crearRecorrido()
+
+CrearRecorridoView -d-> RecorridoController: validarDatosMínimos(nombre) : boolean
+
+RecorridoController --> RecorridoRepository: verificarUnicidad(nombre) : boolean
+
+CrearRecorridoView --> RecorridoController: crearRecorrido(nombre) : Recorrido
+
+RecorridoController --> RecorridoRepository: crear(nombre) : Recorrido
+
+RecorridoRepository -- Recorrido
+
+CrearRecorridoView ..> EditarRecorrido: <<include>> editarRecorrido(recorridoNuevo)
+
+@enduml

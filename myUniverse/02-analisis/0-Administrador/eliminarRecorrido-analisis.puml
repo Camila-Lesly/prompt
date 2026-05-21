@@ -1,0 +1,30 @@
+@startuml eliminarRecorrido-analisis
+skinparam linetype polyline
+
+rectangle #CDEBA5 ":RECORRIDOS_ABIERTO" as RecorridosAbierto
+rectangle #CDEBA5 ":RECORRIDO_ABIERTO" as RecorridoAbierto
+rectangle #CDEBA5 ":collaboration abrirRecorridos" as AbrirRecorridos
+
+package eliminarRecorrido as "eliminarRecorrido()" {
+    rectangle #629EF9 EliminarRecorridoView
+    rectangle #b5bd68 RecorridoController
+    rectangle #F2AC4E RecorridoRepository
+    rectangle #F2AC4E Recorrido
+}
+
+RecorridosAbierto --> EliminarRecorridoView: eliminarRecorrido(recorridoId)
+RecorridoAbierto --> EliminarRecorridoView: eliminarRecorrido(recorridoId)
+
+EliminarRecorridoView -d-> RecorridoController: cargarRecorridoParaEliminacion(recorridoId) : Recorrido
+
+RecorridoController --> RecorridoRepository: obtenerPorId(recorridoId) : Recorrido
+
+RecorridoRepository -- Recorrido
+
+EliminarRecorridoView --> RecorridoController: eliminarRecorrido(recorridoId) : void
+
+RecorridoController --> RecorridoRepository: eliminar(recorridoId) : void
+
+EliminarRecorridoView ..> AbrirRecorridos: <<include>> abrirRecorridos()
+
+@enduml

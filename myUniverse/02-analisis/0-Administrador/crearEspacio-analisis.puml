@@ -1,0 +1,28 @@
+@startuml crearEspacio-analisis
+skinparam linetype polyline
+
+rectangle #CDEBA5 ":ESPACIOS_ABIERTO" as EspaciosAbierto
+rectangle #CDEBA5 ":collaboration editarEspacio" as EditarEspacio
+
+package crearEspacio as "crearEspacio()" {
+    rectangle #629EF9 CrearEspacioView
+    rectangle #b5bd68 EspacioController
+    rectangle #F2AC4E EspacioRepository
+    rectangle #F2AC4E Espacio
+}
+
+EspaciosAbierto -r-> CrearEspacioView: crearEspacio()
+
+CrearEspacioView -d-> EspacioController: validarDatosMínimos(nombre) : boolean
+
+EspacioController --> EspacioRepository: verificarUnicidad(nombre) : boolean
+
+CrearEspacioView --> EspacioController: crearEspacio(nombre) : Espacio
+
+EspacioController --> EspacioRepository: crear(nombre) : Espacio
+
+EspacioRepository -- Espacio
+
+CrearEspacioView ..> EditarEspacio: <<include>> editarEspacio(espacioNuevo)
+
+@enduml

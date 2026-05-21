@@ -1,0 +1,34 @@
+@startuml abrirEspacios-analisis
+skinparam linetype polyline
+
+rectangle #CDEBA5 ":UNIVERSIDAD_DISPONIBLE" as UniversidadDisponible
+package abrirEspacios as "abrirEspacios()" {
+    rectangle #629EF9 EspaciosView
+    rectangle #b5bd68 EspacioController
+    rectangle #F2AC4E EspacioRepository
+    rectangle #F2AC4E Espacio
+}
+
+rectangle #CDEBA5 ":UNIVERSIDAD_DISPONIBLE" as UniversidadDisponibleSalida
+rectangle #CDEBA5 ":ESPACIO_ABIERTO" as CrearEspacio
+rectangle #CDEBA5 ":ESPACIO_ABIERTO" as EditarEspacio
+rectangle #CDEBA5 ":ESPACIOS_ABIERTO" as EliminarEspacio
+
+UniversidadDisponible -r-> EspaciosView: abrirEspacios()
+
+EspaciosView -d-> EspacioController: obtenerEspacios() : List<Espacio>
+
+EspacioController --> EspacioRepository: findAll() : List<Espacio>
+
+EspacioRepository -- Espacio
+
+EspaciosView -d-> EspacioController: filtrarEspacios(criterio) : List<Espacio>
+
+EspacioController --> EspacioRepository: findByCriterio(criterio) : List<Espacio>
+
+EspaciosView ..> UniversidadDisponibleSalida: completarGestion()
+EspaciosView ..> CrearEspacio: crearEspacio()
+EspaciosView ..> EditarEspacio: editarEspacio()
+EspaciosView ..> EliminarEspacio: eliminarEspacio()
+
+@enduml

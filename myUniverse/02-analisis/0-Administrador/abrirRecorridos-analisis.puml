@@ -1,0 +1,34 @@
+@startuml abrirRecorridos-analisis
+skinparam linetype polyline
+
+rectangle #CDEBA5 ":Universidad Disponible" as UniversidadDisponible
+package abrirRecorridos as "abrirRecorridos()" {
+    rectangle #629EF9 RecorridosView
+    rectangle #b5bd68 RecorridoController
+    rectangle #F2AC4E RecorridoRepository
+    rectangle #F2AC4E Recorrido
+}
+
+rectangle #CDEBA5 ":Universidad Disponible" as UniversidadDisponibleSalida
+rectangle #CDEBA5 ":collaboration crearRecorrido" as CrearRecorrido
+rectangle #CDEBA5 ":collaboration editarRecorrido" as EditarRecorrido
+rectangle #CDEBA5 ":collaboration eliminarRecorrido" as EliminarRecorrido
+
+UniversidadDisponible -r-> RecorridosView: abrirRecorridos()
+
+RecorridosView -d-> RecorridoController: obtenerRecorridos() : List<Recorrido>
+
+RecorridoController --> RecorridoRepository: findAll() : List<Recorrido>
+
+RecorridoRepository -- Recorrido
+
+RecorridosView -d-> RecorridoController: filtrarRecorridos(criterio) : List<Recorrido>
+
+RecorridoController --> RecorridoRepository: findByCriterio(criterio) : List<Recorrido>
+
+RecorridosView ..> UniversidadDisponibleSalida: completarGestion()
+RecorridosView ..> CrearRecorrido: crearRecorrido()
+RecorridosView ..> EditarRecorrido: editarRecorrido()
+RecorridosView ..> EliminarRecorrido: eliminarRecorrido()
+
+@enduml

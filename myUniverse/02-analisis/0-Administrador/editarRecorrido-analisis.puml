@@ -1,0 +1,32 @@
+@startuml editarRecorrido-analisis
+skinparam linetype polyline
+
+rectangle #CDEBA5 ":RECORRIDOS_ABIERTO" as RecorridosAbierto
+rectangle #CDEBA5 ":RECORRIDO_ABIERTO" as RecorridoAbierto
+rectangle #CDEBA5 ":collaboration crearRecorrido" as CrearRecorrido
+rectangle #CDEBA5 ":collaboration abrirRecorridos" as AbrirRecorridos
+
+package editarRecorrido as "editarRecorrido()" {
+    rectangle #629EF9 EditarRecorridoView
+    rectangle #b5bd68 RecorridoController
+    rectangle #F2AC4E RecorridoRepository
+    rectangle #F2AC4E Recorrido
+}
+
+RecorridosAbierto --> EditarRecorridoView: editarRecorrido(recorridoId)
+RecorridoAbierto --> EditarRecorridoView: editarRecorrido(recorridoId)
+CrearRecorrido --> EditarRecorridoView: editarRecorrido(recorridoNuevo)
+
+EditarRecorridoView -d-> RecorridoController: cargarRecorridoParaEdición(recorridoId) : Recorrido
+
+RecorridoController --> RecorridoRepository: obtenerPorId(recorridoId) : Recorrido
+
+RecorridoRepository -- Recorrido
+
+EditarRecorridoView --> RecorridoController: modificarCampos(recorridoId, cambios) : boolean
+
+RecorridoController --> RecorridoRepository: actualizar(recorrido) : boolean
+
+EditarRecorridoView ..> AbrirRecorridos: <<include>> abrirRecorridos()
+
+@enduml
