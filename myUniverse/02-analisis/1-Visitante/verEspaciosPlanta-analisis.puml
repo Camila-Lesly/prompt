@@ -1,0 +1,26 @@
+@startuml verEspaciosPlanta-analisis
+skinparam linetype polyline
+
+rectangle #CDEBA5 ":Recorrido Abierto" as RecorridoAbierto
+rectangle #CDEBA5 ":Espacio Abierto" as EspacioAbiertoIn
+package verEspaciosPlanta as "verEspaciosPlanta()" {
+    rectangle #629EF9 EspaciosPlantaView
+    rectangle #b5bd68 EspacioController
+    rectangle #F2AC4E EspacioRepository
+    rectangle #F2AC4E Espacio
+}
+
+rectangle #CDEBA5 ":Espacio Abierto" as EspacioAbiertoOut
+
+RecorridoAbierto -r-> EspaciosPlantaView: verEspaciosPlanta()
+EspacioAbiertoIn -r-> EspaciosPlantaView: verEspaciosPlanta()
+
+EspaciosPlantaView -d-> EspacioController: obtenerPorPlanta() : List<Espacio>
+
+EspacioController --> EspacioRepository: findByPlanta() : List<Espacio>
+
+EspacioRepository -- Espacio
+
+EspaciosPlantaView -r-> EspacioAbiertoOut: seleccionarEspacio(espacioId)
+
+@enduml

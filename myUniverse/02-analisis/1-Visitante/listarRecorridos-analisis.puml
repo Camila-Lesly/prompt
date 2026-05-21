@@ -1,0 +1,26 @@
+@startuml listarRecorridos-analisis
+skinparam linetype polyline
+
+rectangle #CDEBA5 ":Universidad Disponible" as UniversidadDisponible
+package listarRecorridos as "listarRecorridos()" {
+    rectangle #629EF9 ListarRecorridosView
+    rectangle #b5bd68 RecorridoController
+    rectangle #F2AC4E RecorridoRepository
+    rectangle #F2AC4E Recorrido
+}
+
+rectangle #CDEBA5 ":Universidad Disponible" as UniversidadDisponibleSalida
+rectangle #CDEBA5 ":collaboration seleccionarRecorrido" as SeleccionarRecorrido
+
+UniversidadDisponible -r-> ListarRecorridosView: listarRecorridos()
+
+ListarRecorridosView -d-> RecorridoController: obtenerRecorridos() : List<Recorrido>
+
+RecorridoController --> RecorridoRepository: findAll() : List<Recorrido>
+
+RecorridoRepository -- Recorrido
+
+ListarRecorridosView ..> UniversidadDisponibleSalida: abrirUniversidad()
+ListarRecorridosView ..> SeleccionarRecorrido: seleccionarRecorrido(recorridoId)
+
+@enduml

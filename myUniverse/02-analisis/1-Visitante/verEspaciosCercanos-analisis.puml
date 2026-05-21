@@ -1,0 +1,26 @@
+@startuml verEspaciosCercanos-analisis
+skinparam linetype polyline
+
+rectangle #CDEBA5 ":Recorrido Abierto" as RecorridoAbierto
+rectangle #CDEBA5 ":Espacio Abierto" as EspacioAbiertoIn
+package verEspaciosCercanos as "verEspaciosCercanos()" {
+    rectangle #629EF9 EspaciosCercanosView
+    rectangle #b5bd68 EspacioController
+    rectangle #F2AC4E EspacioRepository
+    rectangle #F2AC4E Espacio
+}
+
+rectangle #CDEBA5 ":Espacio Abierto" as EspacioAbiertoOut
+
+RecorridoAbierto -r-> EspaciosCercanosView: verEspaciosCercanos()
+EspacioAbiertoIn -r-> EspaciosCercanosView: verEspaciosCercanos()
+
+EspaciosCercanosView -d-> EspacioController: obtenerCercanos() : List<Espacio>
+
+EspacioController --> EspacioRepository: findCercanos() : List<Espacio>
+
+EspacioRepository -- Espacio
+
+EspaciosCercanosView -r-> EspacioAbiertoOut: seleccionarEspacio(espacioId)
+
+@enduml

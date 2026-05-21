@@ -1,0 +1,24 @@
+@startuml buscarEspacio-analisis
+skinparam linetype polyline
+
+rectangle #CDEBA5 ":Recorrido Abierto" as RecorridoAbierto
+package buscarEspacio as "buscarEspacio()" {
+    rectangle #629EF9 BuscarEspacioView
+    rectangle #b5bd68 EspacioController
+    rectangle #F2AC4E EspacioRepository
+    rectangle #F2AC4E Espacio
+}
+
+rectangle #CDEBA5 ":Espacio Abierto" as EspacioAbierto
+
+RecorridoAbierto -r-> BuscarEspacioView: buscarEspacio()
+
+BuscarEspacioView -d-> EspacioController: buscar(criterio) : List<Espacio>
+
+EspacioController --> EspacioRepository: findByCriterio(criterio) : List<Espacio>
+
+EspacioRepository -- Espacio
+
+BuscarEspacioView -r-> EspacioAbierto: seleccionarEspacio(espacioId)
+
+@enduml

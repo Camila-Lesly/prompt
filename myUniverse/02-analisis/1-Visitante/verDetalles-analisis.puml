@@ -1,0 +1,26 @@
+@startuml verDetalles-analisis
+skinparam linetype polyline
+
+rectangle #CDEBA5 ":Recorrido Abierto" as RecorridoAbierto
+rectangle #CDEBA5 ":Espacio Abierto" as EspacioAbiertoIn
+package verDetalles as "verDetalles()" {
+    rectangle #629EF9 DetalleEspacioView
+    rectangle #b5bd68 EspacioController
+    rectangle #F2AC4E EspacioRepository
+    rectangle #F2AC4E Espacio
+}
+
+rectangle #CDEBA5 ":Espacio Abierto" as EspacioAbiertoOut
+
+RecorridoAbierto -r-> DetalleEspacioView: verDetalles(espacioId)
+EspacioAbiertoIn -r-> DetalleEspacioView: verDetalles(espacioId)
+
+DetalleEspacioView -d-> EspacioController: obtenerDetalles(espacioId) : Espacio
+
+EspacioController --> EspacioRepository: findById(espacioId) : Espacio
+
+EspacioRepository -- Espacio
+
+DetalleEspacioView -r-> EspacioAbiertoOut: mostrarDetalles()
+
+@enduml

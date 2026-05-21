@@ -1,0 +1,28 @@
+@startuml cambiarDeEspacio-analisis
+skinparam linetype polyline
+
+rectangle #CDEBA5 ":Recorrido Abierto" as RecorridosAbierto
+rectangle #CDEBA5 ":Espacio Abierto" as EspacioAbiertoIn
+package cambiarDeEspacio as "cambiarDeEspacio()" {
+    rectangle #629EF9 NavegacionView
+    rectangle #b5bd68 RecorridoController
+    rectangle #F2AC4E RecorridoRepository
+    rectangle #F2AC4E Recorrido
+    rectangle #F2AC4E Espacio
+}
+
+rectangle #CDEBA5 ":Espacio Abierto" as EspacioAbiertoOut
+
+RecorridosAbierto -r-> NavegacionView: cambiarDeEspacio(direccion)
+EspacioAbiertoIn -r-> NavegacionView: cambiarDeEspacio(direccion)
+
+NavegacionView -d-> RecorridoController: obtenerSiguiente(actualId, direccion) : Espacio
+
+RecorridoController --> RecorridoRepository: findById(recorridoId) : Recorrido
+
+RecorridoRepository -- Recorrido
+Recorrido -- Espacio
+
+NavegacionView -r-> EspacioAbiertoOut: mostrarNuevoEspacio()
+
+@enduml
